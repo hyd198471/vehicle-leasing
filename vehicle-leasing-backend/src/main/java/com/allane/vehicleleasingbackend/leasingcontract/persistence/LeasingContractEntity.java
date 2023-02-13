@@ -34,7 +34,7 @@ public class LeasingContractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CONTRACT_NUMBER")
-    private Long CONTRACT_NUMBER;
+    private Long contractNumber;
 
     @Column(name = "MONTHLY_RATE", precision = 18, scale = 2)
     @NotNull

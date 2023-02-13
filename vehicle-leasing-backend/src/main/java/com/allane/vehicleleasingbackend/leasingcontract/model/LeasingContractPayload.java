@@ -12,19 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class LeasingContractDto {
+public class LeasingContractPayload {
 
-    private long contractNumber;
+    private long customerId;
 
-    private String customerInfo;
-
-    private String vehicleInfo;
-
-    private String vehicleNumber;
+    private long vehicleId;
 
     private double monthlyRate;
-
-    private String details;
-
-    private double vehiclePrice;
 }
