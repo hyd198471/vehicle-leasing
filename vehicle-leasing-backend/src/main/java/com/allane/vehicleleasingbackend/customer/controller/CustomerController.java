@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.allane.vehicleleasingbackend.common.Functionals;
-import com.allane.vehicleleasingbackend.customer.exception.CustomerNotFoundException;
+import com.allane.vehicleleasingbackend.common.exception.NotFoundException;
 import com.allane.vehicleleasingbackend.customer.model.CustomerDto;
 import com.allane.vehicleleasingbackend.customer.persistence.CustomerEntity;
 import com.allane.vehicleleasingbackend.customer.persistence.CustomerRepository;
@@ -32,14 +32,14 @@ public class CustomerController {
     @GetMapping("/{id}")
     public CustomerDto findById(@PathVariable long id) {
         CustomerEntity customerEntity = customerRepository.findById(id)
-                .orElseThrow(CustomerNotFoundException::new);
+                .orElseThrow(NotFoundException::new);
         return mapToCustomerDto(customerEntity);
     }
 
     @GetMapping("/")
     public List<CustomerDto> listCustomers() {
-        List<CustomerEntity> customerEntity = customerRepository.findAll();
-        return Functionals.mapItems(customerEntity, this::mapToCustomerDto);
+        List<CustomerEntity> customerEntities = customerRepository.findAll();
+        return Functionals.mapItems(customerEntities, this::mapToCustomerDto);
     }
 
     private CustomerDto mapToCustomerDto(CustomerEntity customerEntity) {
