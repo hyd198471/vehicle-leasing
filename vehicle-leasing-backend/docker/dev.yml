@@ -14,6 +14,23 @@ services:
     volumes:
       - db:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - my-network
+
+  leasing-backend:
+    image: com.allane/vehicle-leasing-backend:0.0.1-snapshot
+    container_name: vehicle-leasing-backend
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    networks:
+      - my-network
 volumes:
   db:
     driver: local
+networks:
+  my-network:
+    external:
+      name: vehicle-leasing # docker create network vehicle-leasing first
+
