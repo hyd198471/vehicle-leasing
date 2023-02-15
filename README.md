@@ -14,7 +14,7 @@ This is a springboot application (version 2.7.8).
 
 # Technologies
 
-Springboot, flyway, gradle, java 11,docker, docker compose, mysql,git
+Springboot, flyway, gradle, java 11,docker, docker compose, mysql,git, intellj
 
 # How to run
 
